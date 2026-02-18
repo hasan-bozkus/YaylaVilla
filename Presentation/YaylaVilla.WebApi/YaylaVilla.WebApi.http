@@ -1,0 +1,6 @@
+@YaylaVilla.WebApi_HostAddress = http://localhost:5264
+
+GET {{YaylaVilla.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

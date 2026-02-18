@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\YaylaVilla.Domain\YaylaVilla.Domain.csproj" />
-  </ItemGroup>
-
 </Project>

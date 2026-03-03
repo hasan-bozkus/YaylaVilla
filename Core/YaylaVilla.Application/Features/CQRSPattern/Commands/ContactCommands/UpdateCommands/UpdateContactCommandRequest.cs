@@ -5,8 +5,10 @@ namespace YaylaVilla.Application.Features.CQRSPattern.Commands.ContactCommands.U
     public class UpdateContactCommandRequest : IRequest<UpdateContactCommandResponse>
     {
         public int ContactID { get; set; }
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public bool Status { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
     }
 }

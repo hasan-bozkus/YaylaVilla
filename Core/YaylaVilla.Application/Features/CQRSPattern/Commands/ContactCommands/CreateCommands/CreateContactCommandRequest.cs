@@ -4,8 +4,10 @@ namespace YaylaVilla.Application.Features.CQRSPattern.Commands.ContactCommands.C
 {
     public class CreateContactCommandRequest : IRequest<CreateContactCommandResponse>
     {
-        public string Title { get; set; }
-        public string Description { get; set; }
-        public bool Status { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Email { get; set; }
+        public string Subject { get; set; }
+        public string Message { get; set; }
     }
 }

@@ -1,0 +1,36 @@
+﻿using AutoMapper;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using YaylaVilla.Application.Features.RepositoryPattern.Abstract.TestimonialRepositories;
+using YaylaVilla.Domain.Entites;
+
+namespace YaylaVilla.Application.Features.CQRSPattern.Commands.TestimonialCommands.CreateCommands
+{
+    internal class CreateTestimonialCommandHandler : IRequestHandler<CreateTestimonialCommandRequest, CreateTestimonialCommandResponse>
+    {
+        private readonly ITestimonialWriteRepository _testimonialWriteRepository;
+        private readonly IMapper _mapper;
+
+        public CreateTestimonialCommandHandler(ITestimonialWriteRepository testimonialWriteRepository, IMapper mapper)
+        {
+            _testimonialWriteRepository = testimonialWriteRepository;
+            _mapper = mapper;
+        }
+
+        public async Task<CreateTestimonialCommandResponse> Handle(CreateTestimonialCommandRequest request, CancellationToken cancellationToken)
+        {
+            var mapper = _mapper.Map<Testimonial>(request);
+            await _testimonialWriteRepository.CreateAsync(mapper);
+            await _testimonialWriteRepository.SaveChangesAsync();
+            return new()
+            {
+                IsStatus = true,
+                StatusMessage = ["Oluşturma işlemi başarılı."]
+            };
+        }
+    }
+}

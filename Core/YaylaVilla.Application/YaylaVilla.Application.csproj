@@ -15,10 +15,4 @@
     <PackageReference Include="MediatR" Version="14.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\CQRSPattern\Commands\CategoryCommands\DeleteCommands\" />
-    <Folder Include="Features\CQRSPattern\Commands\CategoryCommands\UpdateCommands\" />
-    <Folder Include="Features\CQRSPattern\Queries\" />
-  </ItemGroup>
-
 </Project>

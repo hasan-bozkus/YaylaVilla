@@ -8,28 +8,29 @@ using System.Threading.Tasks;
 using YaylaVilla.Application.Features.RepositoryPattern.Abstract.CategoryRepositories;
 using YaylaVilla.Domain.Entites;
 
-namespace YaylaVilla.Application.Features.CQRSPattern.Commands.CategoryCommands.CreateCommands
+namespace YaylaVilla.Application.Features.CQRSPattern.Commands.CategoryCommands.UpdateCommands
 {
-    internal class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommandRequest, CreateCategoryCommandResponse>
+    internal class UpdateCategoryCommandHandler : IRequestHandler<UpdateCategoryCommandRequest, UpdateCategoryCommandResponse>
     {
         private readonly ICategoryWriteRepository _categoryWriteRepository;
         private readonly IMapper _mapper;
 
-        public CreateCategoryCommandHandler(ICategoryWriteRepository categoryWriteRepository, IMapper mapper)
+        public UpdateCategoryCommandHandler(ICategoryWriteRepository categoryWriteRepository, IMapper mapper)
         {
             _categoryWriteRepository = categoryWriteRepository;
             _mapper = mapper;
         }
 
-        public async Task<CreateCategoryCommandResponse> Handle(CreateCategoryCommandRequest request, CancellationToken cancellationToken)
+        public async Task<UpdateCategoryCommandResponse> Handle(UpdateCategoryCommandRequest request, CancellationToken cancellationToken)
         {
             var mapper = _mapper.Map<Category>(request);
-            await _categoryWriteRepository.CreateAsync(mapper);
+            await _categoryWriteRepository.UpdateAsync(mapper);
             await _categoryWriteRepository.SaveChangesAsync();
+
             return new()
-            {
+            { 
                 IsStatus = true,
-                StatusMessage = ["Oluşturma işlemi başarılı."]
+                StatusMessage = ["Güncelleme işlemi başarılı"]
             };
         }
     }

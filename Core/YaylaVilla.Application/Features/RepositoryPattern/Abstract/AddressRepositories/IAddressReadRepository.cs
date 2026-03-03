@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using YaylaVilla.Domain.Entites;
 
-namespace YaylaVilla.Application.Features.RepositoryPattern.Abstract.AddressReposiotries
+namespace YaylaVilla.Application.Features.RepositoryPattern.Abstract.AddressRepositories
 {
-    public interface IAddressWriteRepository : IGenericWriteRepository<Address>
+    public interface IAddressReadRepository : IGenericReadRepository<Address>
     {
     }
 }

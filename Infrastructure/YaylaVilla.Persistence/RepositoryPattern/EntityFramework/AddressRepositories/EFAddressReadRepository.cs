@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using YaylaVilla.Application.Features.RepositoryPattern.Abstract.AddressReposiotries;
+using YaylaVilla.Application.Features.RepositoryPattern.Abstract.AddressRepositories;
 using YaylaVilla.Domain.Entites;
 using YaylaVilla.Persistence.Concrete;
 

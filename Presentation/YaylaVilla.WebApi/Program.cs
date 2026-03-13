@@ -1,6 +1,12 @@
+using YaylaVilla.Application;
+using YaylaVilla.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddApplicationServices();
+builder.Services.AddPersisitenceServices();
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

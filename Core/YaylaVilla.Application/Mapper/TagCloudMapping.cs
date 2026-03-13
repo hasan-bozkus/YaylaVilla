@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.TagCloudCommands.CreateCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.TagCloudCommands.UpdateCommands;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.TagCloudQueries.GetQueries;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.TagCloudQueries.ListQueries;
 using YaylaVilla.Domain.Entites;
 
 namespace YaylaVilla.Application.Mapper
@@ -16,8 +18,8 @@ namespace YaylaVilla.Application.Mapper
         {
             CreateMap<TagCloud, CreateTagCloudCommandRequest>().ReverseMap();
             CreateMap<TagCloud, UpdateTagCloudCommandRequest>().ReverseMap();
-            //CreateMap<TagCloud, GetTagCloudQueryResponse>().ReverseMap();
-            //CreateMap<TagCloud, ResultTagCloudListQueryResponse>().ReverseMap();
+            CreateMap<TagCloud, GetTagCloudQueryResponse>().ReverseMap();
+            CreateMap<TagCloud, ResultTagCloudListQueryResponse>().ReverseMap();
         }
     }
 }

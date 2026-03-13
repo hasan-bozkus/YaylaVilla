@@ -21,4 +21,9 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\YaylaVilla.Application\YaylaVilla.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\YaylaVilla.Persistence\YaylaVilla.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

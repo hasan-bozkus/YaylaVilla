@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.AboutCommands.CreateCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.AboutCommands.UpdateCommands;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.AboutQueries.GetQueries;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.AboutQueries.ListQueries;
 using YaylaVilla.Domain.Entites;
 
 namespace YaylaVilla.Application.Mapper
@@ -16,8 +18,8 @@ namespace YaylaVilla.Application.Mapper
         {
             CreateMap<About, CreateAboutCommandRequest>().ReverseMap();
             CreateMap<About, UpdateAboutCommandRequest>().ReverseMap();
-            //CreateMap<About, GetAboutQueryResponse>().ReverseMap();
-            //CreateMap<About, ResultAboutListQueryResponse>().ReverseMap();
+            CreateMap<About, GetAboutQueryResponse>().ReverseMap();
+            CreateMap<About, ResultAboutListQueryResponse>().ReverseMap();
         }
     }
 }

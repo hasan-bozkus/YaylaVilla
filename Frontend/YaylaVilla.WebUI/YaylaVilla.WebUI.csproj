@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\uptown-master\.DS_Store" />
+    <None Include="wwwroot\uptown-master\css\.DS_Store" />
+    <None Include="wwwroot\uptown-master\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\uptown-master\css\css\.DS_Store" />
+    <None Include="wwwroot\uptown-master\fonts\.DS_Store" />
+    <None Include="wwwroot\uptown-master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\uptown-master\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\uptown-master\images\.DS_Store" />
+    <None Include="wwwroot\uptown-master\js\.DS_Store" />
+    <None Include="wwwroot\uptown-master\scss\.DS_Store" />
+    <None Include="wwwroot\uptown-master\scss\bootstrap\.DS_Store" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
+  </ItemGroup>
+
+</Project>

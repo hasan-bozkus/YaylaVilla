@@ -2,7 +2,7 @@
 
 namespace YaylaVilla.WebUI.ViewComponents.UILayoutViewComponents
 {
-    public class _UILayoutNavanComponentPartial : ViewComponent
+    public class _UILayoutScriptsComponentPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

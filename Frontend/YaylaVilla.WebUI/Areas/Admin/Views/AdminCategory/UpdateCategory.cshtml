@@ -1,0 +1,22 @@
+﻿@model ResultGetCategoryByIDDto
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    <input type="hidden" asp-for="CategoryID" />
+
+    <label>Kategori Adı</label>
+    <input type="text" asp-for="CategoryName" class="form-control" placeholder="Kategor Adını Giriniz" />
+    <br />
+    <select asp-for="Status" class="form-control">
+        <option value="">--- Lütfen Seniniz ---</option>
+        <option value="true">Aktif</option>
+        <option value="false">Pasif</option>
+    </select>
+    <button class="btn btn-primary">Kaydet</button>
+
+</form>
+

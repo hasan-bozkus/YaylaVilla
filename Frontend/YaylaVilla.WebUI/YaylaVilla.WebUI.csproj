@@ -24,4 +24,15 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\YaylaVilla.Dto\YaylaVilla.Dto.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="wwwroot\snacked\ltr\assets\plugins\nicescroll\css\" />
+    <Folder Include="wwwroot\snacked\rtl\assets\plugins\nicescroll\css\" />
+  </ItemGroup>
+
 </Project>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.4.11605.240 stable
+VisualStudioVersion = 18.4.11605.240
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{D4F896D4-6473-4DDF-A313-7288F55D90F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YaylaVilla.WebUI", "Frontend\YaylaVilla.WebUI\YaylaVilla.WebUI.csproj", "{EF9E0C65-D4E2-4EFF-B0C0-902825A1499F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YaylaVilla.Dto", "Frontend\YaylaVilla.Dto\YaylaVilla.Dto.csproj", "{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{EF9E0C65-D4E2-4EFF-B0C0-902825A1499F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF9E0C65-D4E2-4EFF-B0C0-902825A1499F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF9E0C65-D4E2-4EFF-B0C0-902825A1499F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{31BA6028-C4A6-465F-BBAC-C72C784689DF} = {86895E59-D955-400F-803B-8964D6FA11D4}
 		{665E4262-FC93-4313-B8F8-8082DB72BACA} = {51D45DCB-7E18-4503-88E0-1F327C6DB8D9}
 		{EF9E0C65-D4E2-4EFF-B0C0-902825A1499F} = {D4F896D4-6473-4DDF-A313-7288F55D90F9}
+		{512E3BCC-BBE1-4DBB-99AE-9215F2C5D764} = {D4F896D4-6473-4DDF-A313-7288F55D90F9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56CF08E0-DFFB-4C4F-BEC6-4EB94542CB46}

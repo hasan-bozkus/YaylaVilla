@@ -1,6 +1,8 @@
+using YaylaVilla.WebUI;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.AddWebUIServiceRouteServices();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -19,6 +21,11 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapStaticAssets();
+
+app.MapControllerRoute(
+    name: "areas",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}")
+    .WithStaticAssets();
 
 app.MapControllerRoute(
     name: "default",

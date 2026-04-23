@@ -22,7 +22,9 @@ namespace YaylaVilla.Application.Features.CQRSPattern.Commands.AboutCommands.Cre
         }
 
         public async Task<CreateAboutCommandResponse> Handle(CreateAboutCommandRequest request, CancellationToken cancellationToken)
-        {
+        {            
+            request.Status = false;
+
             var mapper = _mapper.Map<About>(request);
             await _aboutWriteRepository.CreateAsync(mapper);
             await _aboutWriteRepository.SaveChangesAsync();

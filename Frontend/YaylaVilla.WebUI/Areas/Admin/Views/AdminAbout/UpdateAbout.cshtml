@@ -1,20 +1,23 @@
-﻿@model ResultGetCategoryByIDDto
+﻿@model ResultGetAboutByIDDto
 @{
-    ViewData["Title"] = "UpdateCategory";
+    ViewData["Title"] = "UpdateAbout";
     Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
+
 <div class="row">
     <div class="col-xl-12 mx-auto">
-        <h6 class="mb-0 text-uppercase">Kategori İşlemleri</h6>
+        <h6 class="mb-0 text-uppercase">Hakkımızda İşlemleri</h6>
         <hr />
         <div class="card">
             <div class="card-body">
                 <form method="post">
 
-                    <input type="hidden" asp-for="CategoryID" />
+                    <input type="hidden" asp-for="AboutID" />
 
-                    <input type="text" asp-for="CategoryName" class="form-control" placeholder="Kategor Adını Giriniz" />
+                    <input type="text" asp-for="Title" class="form-control" placeholder="Kategor Adını Giriniz" />
+                    <br />
+                    <textarea rows="5" class="form-control mb-3" asp-for="Description" placeholder="Açıklama" aria-label="Açıklama"> </textarea>
                     <br />
                     <select asp-for="Status" class="form-control">
                         <option value="">--- Lütfen Seniniz ---</option>
@@ -29,4 +32,3 @@
         </div>
     </div>
 </div>
-

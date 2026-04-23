@@ -1,15 +1,28 @@
-﻿
+﻿@model CreateCategoryDto
+
 @{
     ViewData["Title"] = "CreateCategory";
     Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
 }
 
-<form method="post">
 
-   <label>Kategori Adı</label>
-   <input type="text" name="CategoryName" class="form-control" placeholder="Kategor Adını Giriniz"/>
-  <br />
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+        <h6 class="mb-0 text-uppercase">Kategori İşlemleri</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <input class="form-control mb-3" asp-for="CategoryName" type="text" placeholder="Örn: Arsa" aria-label="Kategori Adı">
+                    <br />
 
-  <button class="btn btn-primary">Kaydet</button>
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-</form>
+
+
+

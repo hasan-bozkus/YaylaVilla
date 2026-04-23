@@ -1,4 +1,5 @@
-﻿using YaylaVilla.WebUI.Services.CategoryServices;
+﻿using YaylaVilla.WebUI.Services.AboutServices;
+using YaylaVilla.WebUI.Services.CategoryServices;
 using YaylaVilla.WebUI.Settings;
 
 namespace YaylaVilla.WebUI
@@ -14,6 +15,11 @@ namespace YaylaVilla.WebUI
             builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
             {
                 opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Category.Path}/");
+            });
+
+            builder.Services.AddHttpClient<IAboutServices, AboutService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.About.Path}/");
             });
 
 

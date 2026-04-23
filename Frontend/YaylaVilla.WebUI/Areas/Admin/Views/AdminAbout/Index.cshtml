@@ -1,8 +1,7 @@
-﻿@model List<ResultCategoryDto>
+﻿@model List<ResultAboutDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
-
     int count = 0;
 }
 
@@ -347,10 +346,10 @@
 <!-- Sayfa Başlığı -->
 <div class="page-top">
     <div>
-        <h5>Kategori Yönetimi</h5>
-        <small>Tüm kategorileri görüntüleyin, düzenleyin ve yönetin</small>
+        <h5>Hakkımızda Yönetimi</h5>
+        <small>Hakkımızda alanını görüntüleyin, düzenleyin ve yönetin</small>
     </div>
-    <a asp-area="Admin" asp-controller="AdminCategory" asp-action="CreateCategory" class="btn-yeni">
+    <a asp-area="Admin" asp-controller="AdminAbout" asp-action="CreateAbout" class="btn-yeni">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
              stroke="currentColor" stroke-width="2.5"
              stroke-linecap="round" stroke-linejoin="round">
@@ -365,7 +364,7 @@
 <div class="dt-wrapper-card">
 
     <div class="card-header-custom">
-        <span class="dt-section-label">Kategoriler</span>
+        <span class="dt-section-label">Hakkımızda</span>
         <span class="badge-count">@Model.Count kayıt</span>
     </div>
 
@@ -377,10 +376,9 @@
                 <thead>
                     <tr>
                         <th style="width:60px">#</th>
-                        <th>Kategori Adı</th>
+                        <th>Başlık Adı</th>
                         <th style="width:90px;  text-align:center">Sil</th>
                         <th style="width:115px; text-align:center">Düzenle</th>
-                        <th style="width:155px; text-align:center">Yazıları Görüntüle</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -394,16 +392,16 @@
                             <td>
                                 <div class="cat-cell">
                                     <div class="cat-icon">🏷️</div>
-                                    <span class="cat-name">@item.CategoryName</span>
+                                    <span class="cat-name">@item.Title</span>
                                 </div>
                             </td>
                             <td style="text-align:center">
                                 <a asp-area="Admin"
-                                   asp-controller="AdminCategory"
-                                   asp-action="DeleteCategory"
-                                   asp-route-id="@item.CategoryID"
+                                   asp-controller="AdminAbout"
+                                   asp-action="DeleteAbout"
+                                   asp-route-id="@item.AboutID"
                                    class="btn-tbl btn-tbl-danger"
-                                   onclick="return confirm('@item.CategoryName kategorisini silmek istediğinizden emin misiniz?')">
+                                   onclick="return confirm('@item.Title kategorisini silmek istediğinizden emin misiniz?')">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                                          stroke="currentColor" stroke-width="2.5"
                                          stroke-linecap="round" stroke-linejoin="round">
@@ -417,9 +415,9 @@
                             </td>
                             <td style="text-align:center">
                                 <a asp-area="Admin"
-                                   asp-controller="AdminCategory"
-                                   asp-action="UpdateCategory"
-                                   asp-route-id="@item.CategoryID"
+                                   asp-controller="AdminAbout"
+                                   asp-action="UpdateAbout"
+                                   asp-route-id="@item.AboutID"
                                    class="btn-tbl btn-tbl-warning">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                                          stroke="currentColor" stroke-width="2.5"
@@ -430,21 +428,7 @@
                                     Düzenle
                                 </a>
                             </td>
-                            <td style="text-align:center">
-                                <a asp-area="Admin"
-                                   asp-controller="AdminArticle"
-                                   asp-action="Index"
-                                   asp-route-categoryId="@item.CategoryID"
-                                   class="btn-tbl btn-tbl-success">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
-                                         stroke="currentColor" stroke-width="2.5"
-                                         stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                                        <circle cx="12" cy="12" r="3" />
-                                    </svg>
-                                    Yazıları Gör
-                                </a>
-                            </td>
+                          
                         </tr>
                     }
                 </tbody>
@@ -454,7 +438,6 @@
                         <th>Kategori Adı</th>
                         <th style="text-align:center">Sil</th>
                         <th style="text-align:center">Düzenle</th>
-                        <th style="text-align:center">Yazıları Görüntüle</th>
                     </tr>
                 </tfoot>
             </table>
@@ -463,10 +446,10 @@
         {
             <div class="empty-state">
                 <div class="empty-state-icon">📂</div>
-                <p>Henüz hiç kategori eklenmemiş.</p>
-                <a asp-area="Admin" asp-controller="AdminCategory" asp-action="CreateCategory"
+                <p>Henüz hiç hakkımda eklenmemiş.</p>
+                <a asp-area="Admin" asp-controller="AdminAbout" asp-action="CreateAbout"
                    class="btn-yeni" style="margin-top:14px;display:inline-flex">
-                    İlk Kategoriyi Oluştur
+                    İlk Hakkımdayı Oluştur
                 </a>
             </div>
         }
@@ -516,7 +499,7 @@
                     { extend: 'print', text: '🖨️ Yazdır',  className: 'dt-button' }
                 ],
                 columnDefs: [
-                    { orderable: false, targets: [2, 3, 4] }
+                    { orderable: false, targets: [2, 3] }
                 ]
             });
 

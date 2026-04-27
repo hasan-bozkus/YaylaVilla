@@ -1,34 +1,34 @@
 ﻿using Newtonsoft.Json;
-using YaylaVilla.Dto.Dtos.AboutDtos;
+using YaylaVilla.Dto.Dtos.AddressDtos;
 using YaylaVilla.WebUI.Models;
 
-namespace YaylaVilla.WebUI.Services.AboutServices
+namespace YaylaVilla.WebUI.Services.AddressServices
 {
-    public class AboutService : IAboutServices
+    public class AddressService : IAddressService
     {
         private readonly HttpClient _httpClient;
 
-        public AboutService(HttpClient httpClient)
+        public AddressService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<List<ResultAboutDto>> AboutListAsync()
+        public async Task<List<ResultAddressDto>> AddressListAsync()
         {
             var responseMessage = await _httpClient.GetAsync("");
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
+                var values = JsonConvert.DeserializeObject<List<ResultAddressDto>>(jsonData);
                 return values;
             }
 
-            throw new NotImplementedException("Hakkımda Getirilemedi!");
+            throw new NotImplementedException("Adres Getirilemedi!");
         }
 
-        public async Task<ResultServiceResponseViewModel> CreateAboutAsync(CreateAboutDto createAboutDto)
+        public async Task<ResultServiceResponseViewModel> CreateAddressAsync(CreateAddressDto createAddressDto)
         {
-            var responseMessage = await _httpClient.PostAsJsonAsync<CreateAboutDto>("", createAboutDto);
+            var responseMessage = await _httpClient.PostAsJsonAsync<CreateAddressDto>("", createAddressDto);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -36,10 +36,10 @@ namespace YaylaVilla.WebUI.Services.AboutServices
                 return values;
             }
 
-            throw new NotImplementedException("Hakkımda Eklemedi!");
+            throw new NotImplementedException("Adres Eklemedi!");
         }
 
-        public async Task<ResultServiceResponseViewModel> DeleteAboutAsync(int id)
+        public async Task<ResultServiceResponseViewModel> DeleteAddressAsync(int id)
         {
             var responseMessage = await _httpClient.DeleteAsync($"{id}");
             if (responseMessage.IsSuccessStatusCode)
@@ -48,31 +48,31 @@ namespace YaylaVilla.WebUI.Services.AboutServices
                 var values = JsonConvert.DeserializeObject<ResultServiceResponseViewModel>(jsonData);
                 return values;
             }
-            throw new NotImplementedException("Hakkımda Silinemedi");
+            throw new NotImplementedException("Adres Silinemedi");
         }
 
-        public async Task<ResultGetAboutByIDDto> GetAboutAsync(int id)
+        public async Task<ResultGetAddressByIDDto> GetAddressAsync(int id)
         {
             var responseMessage = await _httpClient.GetAsync($"{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
-                var values = await responseMessage.Content.ReadFromJsonAsync<ResultGetAboutByIDDto>();
+                var values = await responseMessage.Content.ReadFromJsonAsync<ResultGetAddressByIDDto>();
                 return values;
             }
 
-            throw new NotImplementedException("Hakkımda Getirilemedi!");
+            throw new NotImplementedException("Adres Getirilemedi!");
         }
 
-        public async Task<ResultServiceResponseViewModel> UpdateAboutAsync(ResultGetAboutByIDDto resultGetAboutByIDDto)
+        public async Task<ResultServiceResponseViewModel> UpdateAddressAsync(ResultGetAddressByIDDto resultGetAddressByIDDto)
         {
-            var responseMessage = await _httpClient.PutAsJsonAsync<ResultGetAboutByIDDto>("", resultGetAboutByIDDto);
+            var responseMessage = await _httpClient.PutAsJsonAsync<ResultGetAddressByIDDto>("", resultGetAddressByIDDto);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<ResultServiceResponseViewModel>(jsonData);
                 return values;
             }
-            throw new NotImplementedException("Hakkımda Güncellenemedi!");
+            throw new NotImplementedException("Adres Güncellenemedi!");
         }
     }
 }

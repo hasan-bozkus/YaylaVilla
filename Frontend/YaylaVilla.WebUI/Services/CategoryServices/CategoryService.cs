@@ -42,7 +42,13 @@ namespace YaylaVilla.WebUI.Services.CategoryServices
         public async Task<ResultServiceResponseViewModel> DeleteCategoryAsync(int id)
         {
             var responseMessage = await _httpClient.DeleteAsync($"{id}");
-            throw new NotImplementedException();
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<ResultServiceResponseViewModel>(jsonData);
+                return values;
+            }
+            throw new NotImplementedException("Kategori Silinemedi");
         }
 
         public async Task<ResultGetCategoryByIDDto> GetCategoryAsync(int id)

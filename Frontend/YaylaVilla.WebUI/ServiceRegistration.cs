@@ -1,5 +1,6 @@
 ﻿using YaylaVilla.WebUI.Services.AboutServices;
 using YaylaVilla.WebUI.Services.AddressServices;
+using YaylaVilla.WebUI.Services.BlogServices;
 using YaylaVilla.WebUI.Services.CategoryServices;
 using YaylaVilla.WebUI.Settings;
 
@@ -28,7 +29,10 @@ namespace YaylaVilla.WebUI
                 opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Address.Path}/");
             });
 
-
+            builder.Services.AddHttpClient<IBlogService, BlogService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Blog.Path}/");
+            });
         }
     }
 }

@@ -1,10 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Views\AdminComment\**" />
+    <Content Remove="Areas\Admin\Views\AdminComment\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\AdminComment\**" />
+    <None Remove="Areas\Admin\Views\AdminComment\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\uptown-master\.DS_Store" />

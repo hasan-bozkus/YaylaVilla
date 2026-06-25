@@ -1,0 +1,35 @@
+﻿@model ResultGetCommentByIDDto
+
+@{
+    ViewData["Title"] = "GetComment";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+        <h6 class="mb-0 text-uppercase">@Model.CommentDetail İşlemleri</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+
+                    <input type="hidden" asp-for="CommentID" />
+
+                    <input type="text" asp-for="Name" class="form-control" />
+                    <br>
+                    <input type="text" asp-for="Surname" class="form-control" />
+                    <br />
+                                        <input type="text" asp-for="@Model.CreatedDate" class="form-control" />
+
+                    <br />
+
+                                                            <input type="text" asp-for="@Model.CommentDetail" class="form-control" />
+                                                            <br>
+                    <button class="btn btn-primary">Kaydet</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

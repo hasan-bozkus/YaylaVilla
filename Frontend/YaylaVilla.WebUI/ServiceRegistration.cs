@@ -2,6 +2,8 @@
 using YaylaVilla.WebUI.Services.AddressServices;
 using YaylaVilla.WebUI.Services.BlogServices;
 using YaylaVilla.WebUI.Services.CategoryServices;
+using YaylaVilla.WebUI.Services.CommentServices;
+using YaylaVilla.WebUI.Services.ContactServices;
 using YaylaVilla.WebUI.Settings;
 
 namespace YaylaVilla.WebUI
@@ -32,6 +34,16 @@ namespace YaylaVilla.WebUI
             builder.Services.AddHttpClient<IBlogService, BlogService>(opt =>
             {
                 opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Blog.Path}/");
+            });
+
+            builder.Services.AddHttpClient<ICommentService, CommentService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Comment.Path}/");
+            });
+
+            builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Contact.Path}/");
             });
         }
     }

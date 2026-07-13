@@ -1,0 +1,470 @@
+﻿@model ResultGetProductByIDDto
+@{
+    ViewData["Title"] = "Gayrimenkul Güncelle";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<style>
+    .page-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .page-header-icon {
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, #1a56db 0%, #1e429f 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .page-header h5 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .page-header p {
+        margin: 0;
+        font-size: 13px;
+        color: #6b7280;
+    }
+
+    .form-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .form-card-header {
+        padding: 16px 22px;
+        border-bottom: 1px solid #f3f4f6;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f9fafb;
+    }
+
+        .form-card-header .section-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+        }
+
+        .form-card-header h6 {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-card-header span {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 1px;
+        }
+
+    .form-card-body {
+        padding: 22px;
+    }
+
+    .form-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .form-grid-3 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+    }
+
+    .form-grid-4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 16px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+    .form-label {
+        font-size: 13px;
+        font-weight: 500;
+        color: #374151;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+        .form-label .label-icon {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+    .form-control {
+        height: 40px;
+        padding: 0 12px;
+        font-size: 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        color: #111827;
+        background: #fff;
+        transition: border-color 0.15s, box-shadow 0.15s;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+
+    textarea.form-control {
+        height: auto;
+        padding: 10px 12px;
+        resize: vertical;
+        min-height: 110px;
+    }
+
+    select.form-control {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 32px;
+        cursor: pointer;
+    }
+
+    .input-prefix {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .input-prefix-text {
+        height: 40px;
+        padding: 0 12px;
+        background: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-right: none;
+        border-radius: 8px 0 0 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #6b7280;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+    }
+
+    .input-prefix .form-control {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .save-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 24px;
+        background: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .save-bar-note {
+        font-size: 13px;
+        color: #6b7280;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .btn-save {
+        background: linear-gradient(135deg, #1a56db 0%, #1e429f 100%);
+        color: white;
+        border: none;
+        border-radius: 9px;
+        padding: 10px 28px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: opacity 0.15s, transform 0.1s;
+        box-shadow: 0 2px 8px rgba(26, 86, 219, 0.35);
+    }
+
+        .btn-save:hover {
+            opacity: 0.92;
+            transform: translateY(-1px);
+        }
+
+        .btn-save:active {
+            transform: translateY(0);
+        }
+
+    .badge-required {
+        font-size: 10px;
+        background: #fef2f2;
+        color: #dc2626;
+        border-radius: 4px;
+        padding: 1px 5px;
+        font-weight: 600;
+    }
+
+    @@media (max-width: 768px) {
+        .form-grid-2, .form-grid-3, .form-grid-4 {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<div class="page-header">
+    <div class="page-header-icon">🏠</div>
+    <div>
+        <h5>Gayrimenkul Güncelle</h5>
+        <p>Yeni bir mülk ilanı oluşturun</p>
+    </div>
+</div>
+
+<form method="post">
+
+    <input type="hidden" asp-for="ProductID" />
+    <input type="hidden" asp-for="CreatedDate" />
+
+    @*     {{!-- BÖLÜM 1: Temel Bilgiler --}}
+ *@    <div class="form-card">
+    <div class="form-card-header">
+        <div class="section-icon" style="background:#eff6ff;">📋</div>
+        <div>
+            <h6>Temel Bilgiler</h6>
+            <span>İlan başlığı, fiyat ve konum</span>
+        </div>
+    </div>
+    <div class="form-card-body">
+        <div class="form-grid-2" style="gap:16px;">
+
+            <div class="form-group full-width">
+                <label class="form-label">
+                    <span class="label-icon">📝</span> Başlık
+                    <span class="badge-required">Zorunlu</span>
+                </label>
+                <input class="form-control" type="text" asp-for="Title"
+                       placeholder="Örn: Boğaz Manzaralı 3+1 Daire, Beşiktaş" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"><span class="label-icon">💰</span> Fiyat</label>
+                <div class="input-prefix">
+                    <span class="input-prefix-text">₺</span>
+                    <input class="form-control" type="number" asp-for="PropertyPrice"
+                           placeholder="0" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"><span class="label-icon">🏙️</span> Şehir</label>
+                <input class="form-control" type="text" asp-for="City" placeholder="İstanbul" />
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"><span class="label-icon">📍</span> İlçe</label>
+                <input class="form-control" type="text" asp-for="District" placeholder="Kadıköy" />
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*     {{!-- BÖLÜM 2: Alan Ölçüleri --}}
+ *@    <div class="form-card">
+<div class="form-card-header">
+    <div class="section-icon" style="background:#f0fdf4;">📐</div>
+    <div>
+        <h6>Alan & Ölçüler</h6>
+        <span>Arazi ve yapı ölçü bilgileri</span>
+    </div>
+</div>
+<div class="form-card-body">
+    <div class="form-grid-2">
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🔲</span> Arazi Çevresi</label>
+            <div class="input-prefix">
+                <span class="input-prefix-text">m²</span>
+                <input class="form-control" type="number" asp-for="LandSquareMeter"
+                       placeholder="0" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">⬛</span> Arazi Alanı</label>
+            <div class="input-prefix">
+                <span class="input-prefix-text">m²</span>
+                <input class="form-control" type="number" asp-for="AreaSquareMeter"
+                       placeholder="0" />
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+@*     {{!-- BÖLÜM 3: Oda & Kat Bilgileri --}}
+ *@    <div class="form-card">
+<div class="form-card-header">
+    <div class="section-icon" style="background:#faf5ff;">🚪</div>
+    <div>
+        <h6>Oda & Kat Bilgileri</h6>
+        <span>Oda sayısı ve kat düzeni</span>
+    </div>
+</div>
+<div class="form-card-body">
+    <div class="form-grid-4">
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🛋️</span> Oda Sayısı</label>
+            <input class="form-control" type="number" asp-for="RoomCount" placeholder="3" min="0" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🛏️</span> Yatak Odası</label>
+            <input class="form-control" type="number" asp-for="BedRoomCount" placeholder="2" min="0" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🚿</span> Banyo</label>
+            <input class="form-control" type="number" asp-for="BathRoomCount" placeholder="1" min="0" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🚗</span> Garaj</label>
+            <input class="form-control" type="number" asp-for="GarageCount" placeholder="1" min="0" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🏢</span> Kat Sayısı</label>
+            <input class="form-control" type="number" asp-for="StoreyCount" placeholder="5" min="0" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">📅</span> Yapım Yılı</label>
+            <input class="form-control" type="number" asp-for="BuildYear" placeholder="2010" min="1900" max="2100" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🕰️</span> Bina Yaşı</label>
+            <input class="form-control" type="number" asp-for="BuildingAge" placeholder="14" min="0" />
+        </div>
+
+    </div>
+</div>
+</div>
+
+@*     {{!-- BÖLÜM 4: Özellikler --}}
+ *@    <div class="form-card">
+<div class="form-card-header">
+    <div class="section-icon" style="background:#fff7ed;">⚙️</div>
+    <div>
+        <h6>Özellikler & Donanım</h6>
+        <span>Isıtma, mutfak ve ek özellikler</span>
+    </div>
+</div>
+<div class="form-card-body">
+    <div class="form-grid-2">
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🔥</span> Isıtma Tipi</label>
+            <input class="form-control" type="text" asp-for="HeatingType"
+                   placeholder="Merkezi, Doğalgaz, Klima..." />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🍳</span> Mutfak Tipi</label>
+            <input class="form-control" type="text" asp-for="KitchenType"
+                   placeholder="Açık, Kapalı, Amerikan..." />
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🏊</span> Yüzme Havuzu</label>
+            <select class="form-control" asp-for="SwimmingPool">
+                <option value="">— Seçiniz —</option>
+                <option value="true">Var</option>
+                <option value="false">Yok</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label"><span class="label-icon">🛋️</span> Eşyalı mı?</label>
+            <select class="form-control" asp-for="IsFurnished">
+                <option value="">— Seçiniz —</option>
+                <option value="true">Evet, Eşyalı</option>
+                <option value="false">Hayır, Boş</option>
+            </select>
+        </div>
+
+    </div>
+</div>
+</div>
+
+@*     {{!-- BÖLÜM 5: Açıklama --}}
+ *@    <div class="form-card">
+<div class="form-card-header">
+    <div class="section-icon" style="background:#f0f9ff;">📄</div>
+    <div>
+        <h6>Açıklama</h6>
+        <span>Mülk hakkında detaylı bilgi</span>
+    </div>
+</div>
+<div class="form-card-body">
+    <div class="form-group">
+        <label class="form-label"><span class="label-icon">✍️</span> Açıklama Metni</label>
+        <textarea class="form-control" rows="6" asp-for="Description"
+                  placeholder="Mülkün öne çıkan özellikleri, çevresindeki ulaşım ve sosyal olanaklar, özel notlar..."></textarea>
+    </div>
+</div>
+</div>
+
+@*     {{!-- KAYDET ÇUBUĞU --}}
+ *@    <div class="save-bar">
+<div class="save-bar-note">
+    ℹ️ Tüm zorunlu alanları doldurduğunuzdan emin olun
+</div>
+<button type="submit" class="btn-save">
+    💾 Gayrimenkulü Kaydet
+</button>
+</div>
+
+</form>
+
+

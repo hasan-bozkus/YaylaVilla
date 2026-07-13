@@ -1,0 +1,22 @@
+﻿@model CreateTagCloudDto
+@{
+    ViewData["Title"] = "CreateTagCloud";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+        <h6 class="mb-0 text-uppercase">Etiket İşlemleri</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <input class="form-control mb-3" asp-for="TagName" type="text" placeholder="Etiket" aria-label="Etiket">
+                    <br />
+                  
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

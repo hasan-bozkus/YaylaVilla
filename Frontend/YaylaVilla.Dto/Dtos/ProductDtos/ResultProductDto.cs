@@ -1,6 +1,12 @@
-﻿namespace YaylaVilla.Application.Features.CQRSPattern.Queries.ProductQueries.GetQueries
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace YaylaVilla.Dto.Dtos.ProductDtos
 {
-    public class GetProductQueryResponse
+    public class ResultProductDto
     {
         public int ProductID { get; set; }
         public string Title { get; set; }
@@ -23,6 +29,5 @@
         public bool IsFurnished { get; set; }
         public bool Status { get; set; }
         public string Description { get; set; }
-
     }
 }

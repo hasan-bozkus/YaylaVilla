@@ -14,7 +14,6 @@ namespace YaylaVilla.WebUI.Areas.Admin.Controllers
             _aboutService = aboutService;
         }
 
-
         public async Task<IActionResult> Index()
         {
             var values = await _aboutService.AboutListAsync();

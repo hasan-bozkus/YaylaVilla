@@ -22,5 +22,7 @@
         public bool SwimmingPool { get; set; }
         public bool IsFurnished { get; set; }
         public bool Status { get; set; }
+        public string Description { get; set; }
+
     }
 }

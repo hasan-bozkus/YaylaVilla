@@ -10,7 +10,7 @@
         public ApiService Comment { get; set; }
         public ApiService Contact { get; set; }
         public ApiService Product { get; set; }
-        public ApiService Services { get; set; }
+        public ApiService Service { get; set; }
         public ApiService TagCloud { get; set; }
         public ApiService Testimonial { get; set; }
         public ApiService WorkFlow { get; set; }

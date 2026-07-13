@@ -1,0 +1,38 @@
+﻿@model ResultGetTestimonialByIDDto
+@{
+    ViewData["Title"] = "UpdateTestimonial";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+        <h6 class="mb-0 text-uppercase">Referans İşlemleri</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+
+                    <input type="hidden" asp-for="TestimonialID" />
+
+                    <input class="form-control mb-3" asp-for="Name" type="text" placeholder="Referans Adı" aria-label="Referans Adı">
+                    <br />
+                    <input class="form-control mb-3" asp-for="Surname" type="text" placeholder="Referans Soyadı" aria-label="Referans Soyadı">
+                    <br />
+                    <input class="form-control mb-3" asp-for="Title" type="text" placeholder="Unvan" aria-label="Unvan">
+                    <br />
+                    <input class="form-control mb-3" asp-for="ImageUrl" type="text" placeholder="Görsel Url" aria-label="Görsel Url">
+                    <br />
+                    <select class="form-control mb-3" asp-for="Status" aria-label="Durum">
+                        <option value="Aktif">Aktif</option>
+                        <option value="Pasif">Pasif</option>
+                    </select>
+                    <br />
+                    <textarea rows="5" class="form-control mb-3" asp-for="Description" placeholder="Açıklama" aria-label="Açıklama"> </textarea>
+                    <br />
+
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

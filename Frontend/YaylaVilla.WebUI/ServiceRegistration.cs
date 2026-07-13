@@ -4,6 +4,10 @@ using YaylaVilla.WebUI.Services.BlogServices;
 using YaylaVilla.WebUI.Services.CategoryServices;
 using YaylaVilla.WebUI.Services.CommentServices;
 using YaylaVilla.WebUI.Services.ContactServices;
+using YaylaVilla.WebUI.Services.ProductServices;
+using YaylaVilla.WebUI.Services.ServiceServices;
+using YaylaVilla.WebUI.Services.TagCloudServices;
+using YaylaVilla.WebUI.Services.TestimonialServices;
 using YaylaVilla.WebUI.Settings;
 
 namespace YaylaVilla.WebUI
@@ -44,6 +48,26 @@ namespace YaylaVilla.WebUI
             builder.Services.AddHttpClient<IContactService, ContactService>(opt =>
             {
                 opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Contact.Path}/");
+            });
+
+            builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Product.Path}/");
+            });
+
+            builder.Services.AddHttpClient<IServiceService, ServiceService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Service.Path}/");
+            });
+
+            builder.Services.AddHttpClient<ITagCloudService, TagCloudService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.TagCloud.Path}/");
+            });
+
+            builder.Services.AddHttpClient<ITestimonialService, TestimonialService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Testimonial.Path}/");
             });
         }
     }

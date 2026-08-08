@@ -8,6 +8,7 @@ using YaylaVilla.WebUI.Services.ProductServices;
 using YaylaVilla.WebUI.Services.ServiceServices;
 using YaylaVilla.WebUI.Services.TagCloudServices;
 using YaylaVilla.WebUI.Services.TestimonialServices;
+using YaylaVilla.WebUI.Services.WorkFlowServices;
 using YaylaVilla.WebUI.Settings;
 
 namespace YaylaVilla.WebUI
@@ -68,6 +69,11 @@ namespace YaylaVilla.WebUI
             builder.Services.AddHttpClient<ITestimonialService, TestimonialService>(opt =>
             {
                 opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.Testimonial.Path}/");
+            });
+
+            builder.Services.AddHttpClient<IWorkFlowService, WorkFlowService>(opt =>
+            {
+                opt.BaseAddress = new Uri($"{values!.ApiServerUrl}/{values.WorkFlow.Path}/");
             });
         }
     }

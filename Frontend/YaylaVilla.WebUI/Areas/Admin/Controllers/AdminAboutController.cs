@@ -39,8 +39,6 @@ namespace YaylaVilla.WebUI.Areas.Admin.Controllers
             return RedirectToAction("Index", values.StatusMessage);
         }
 
-
-
         [HttpGet]
         public async Task<IActionResult> UpdateAbout(int id)
         {

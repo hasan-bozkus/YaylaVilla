@@ -1,0 +1,25 @@
+﻿@model CreateWorkFlowDto
+@{
+    ViewData["Title"] = "CreateWorkFlow";
+    Layout = "~/Areas/Admin/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xl-12 mx-auto">
+        <h6 class="mb-0 text-uppercase">İş Akışı İşlemleri</h6>
+        <hr />
+        <div class="card">
+            <div class="card-body">
+                <form method="post">
+                    <input class="form-control mb-3" asp-for="Title" type="text" placeholder="Başlık" aria-label="Başlık">
+                    <br />
+                    <textarea rows="5" class="form-control mb-3" asp-for="Content" placeholder="Açıklama" aria-label="Açıklama"> </textarea>
+                    <br />
+
+                    <button class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

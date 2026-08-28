@@ -10,5 +10,7 @@ namespace YaylaVilla.WebUI.Services.BlogServices
         Task<ResultServiceResponseViewModel> DeleteBlogAsync(int id);
         Task<ResultServiceResponseViewModel> UpdateBlogAsync(ResultGetBlogByIDDto resultGetBlogByIDDto);
         Task<ResultGetBlogByIDDto> GetBlogAsync(int id);
+        Task<List<ResultGetLast4BlogListDto>> GetLast4BlogListAsync();
+
     }
 }

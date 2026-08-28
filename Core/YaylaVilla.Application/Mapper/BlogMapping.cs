@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.CreateCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.UpdateCommands;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.GetLast4BlogListQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.GetQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.ListQueries;
 using YaylaVilla.Domain.Entites;
@@ -20,6 +21,7 @@ namespace YaylaVilla.Application.Mapper
             CreateMap<Blog, UpdateBlogCommandRequest>().ReverseMap();
             CreateMap<Blog, GetBlogQueryResponse>().ReverseMap();
             CreateMap<Blog, ResultBlogListQueryResponse>().ReverseMap();
+            CreateMap<Blog, GetLast4BlogListQueryResponse>().ReverseMap();
         }
     }
 }

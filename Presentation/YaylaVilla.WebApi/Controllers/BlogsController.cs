@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.CreateCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.DeleteCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.UpdateCommands;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.GetLast4BlogListQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.GetQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.BlogQueries.ListQueries;
 
@@ -52,6 +53,13 @@ namespace YaylaVilla.WebApi.Controllers
         public async Task<IActionResult> UpdateBlog([FromBody] UpdateBlogCommandRequest request)
         {
             UpdateBlogCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpGet("GetLast4BlogList")]
+        public async Task<IActionResult> GetLast4BlogList([FromQuery] GetLast4BlogListQueryRequest request)
+        {
+            List<GetLast4BlogListQueryResponse> response = await _mediator.Send(request);
             return Ok(response);
         }
     }

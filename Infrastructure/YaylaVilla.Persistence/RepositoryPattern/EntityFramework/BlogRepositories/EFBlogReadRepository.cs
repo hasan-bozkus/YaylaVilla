@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,17 @@ namespace YaylaVilla.Persistence.RepositoryPattern.EntityFramework.BlogRepositor
 {
     public class EFBlogReadRepository : GenericReadRepository<Blog>, IBlogReadRepository
     {
+        private readonly YaylaVillaContext _context;
+
         public EFBlogReadRepository(YaylaVillaContext context) : base(context)
         {
+            _context = context;
+        }
+
+        public async Task<List<Blog>> GetLast4BlogListAsync()
+        {
+            var values = await _context.Blogs.OrderByDescending(x => x.BlogID).Take(4).ToListAsync();
+            return values;
         }
     }
 }

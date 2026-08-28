@@ -9,5 +9,6 @@ namespace YaylaVilla.Application.Features.RepositoryPattern.Abstract.BlogReposit
 {
     public interface IBlogReadRepository : IGenericReadRepository<Blog>
     {
+        Task<List<Blog>> GetLast4BlogListAsync();
     }
 }

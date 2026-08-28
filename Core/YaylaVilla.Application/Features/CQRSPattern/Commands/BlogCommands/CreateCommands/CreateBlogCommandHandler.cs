@@ -24,6 +24,7 @@ namespace YaylaVilla.Application.Features.CQRSPattern.Commands.BlogCommands.Crea
         public async Task<CreateBlogCommandResponse> Handle(CreateBlogCommandRequest request, CancellationToken cancellationToken)
         {
             var mapper = _mapper.Map<Blog>(request);
+            mapper.CreatedDate = DateTime.UtcNow;
             await _blogWriteRepository.CreateAsync(mapper);
             await _blogWriteRepository.SaveChangesAsync();
             return new()

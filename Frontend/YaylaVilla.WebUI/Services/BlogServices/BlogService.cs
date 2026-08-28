@@ -63,6 +63,19 @@ namespace YaylaVilla.WebUI.Services.BlogServices
             throw new NotImplementedException("Blog Getirilemedi!");
         }
 
+        public async Task<List<ResultGetLast4BlogListDto>> GetLast4BlogListAsync()
+        {
+            var responseMessage = await _httpClient.GetAsync("GetLast4BlogList");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultGetLast4BlogListDto>>(jsonData);
+                return values;
+            }
+
+            throw new NotImplementedException("Son 4 Blog Getirilemedi!");
+        }
+
         public async Task<ResultServiceResponseViewModel> UpdateBlogAsync(ResultGetBlogByIDDto resultGetBlogByIDDto)
         {
             var responseMessage = await _httpClient.PutAsJsonAsync<ResultGetBlogByIDDto>("", resultGetBlogByIDDto);

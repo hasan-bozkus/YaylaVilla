@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.ProductCommands.CreateCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.ProductCommands.DeleteCommands;
 using YaylaVilla.Application.Features.CQRSPattern.Commands.ProductCommands.UpdateCommands;
+using YaylaVilla.Application.Features.CQRSPattern.Queries.ProductQueries.GetProductSpecialOfferListQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.ProductQueries.GetQueries;
 using YaylaVilla.Application.Features.CQRSPattern.Queries.ProductQueries.ListQueries;
 
@@ -52,6 +53,13 @@ namespace YaylaVilla.WebApi.Controllers
         public async Task<IActionResult> UpdateProduct([FromBody] UpdateProductCommandRequest request)
         {
             UpdateProductCommandResponse response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpGet("GetProductSpecialOfferList")]
+        public async Task<IActionResult> GetProductSpecialOfferList([FromQuery] GetProductSpecialOfferListQueryRequest request)
+        {
+            List<GetProductSpecialOfferListQueryResponse> response = await _mediator.Send(request);
             return Ok(response);
         }
     }

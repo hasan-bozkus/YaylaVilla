@@ -74,5 +74,18 @@ namespace YaylaVilla.WebUI.Services.ProductServices
             }
             throw new NotImplementedException("İlan Güncellenemedi!");
         }
+
+        public async Task<List<ResultGetSpecialOfferListDto>> GetSpecialOfferListAsync()
+        {
+            var responseMessage = await _httpClient.GetAsync("GetProductSpecialOfferList");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultGetSpecialOfferListDto>>(jsonData);
+                return values;
+            }
+
+            throw new NotImplementedException("İlanlar Getirilemedi!");
+        }
     }
 }

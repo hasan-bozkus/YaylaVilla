@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using YaylaVilla.Persistence.Concrete;
@@ -11,9 +12,11 @@ using YaylaVilla.Persistence.Concrete;
 namespace YaylaVilla.Persistence.Migrations
 {
     [DbContext(typeof(YaylaVillaContext))]
-    partial class YaylaVillaContextModelSnapshot : ModelSnapshot
+    [Migration("20260830111545_mig_changed_table_product")]
+    partial class mig_changed_table_product
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

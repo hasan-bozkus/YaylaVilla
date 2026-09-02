@@ -10,5 +10,6 @@ namespace YaylaVilla.WebUI.Services.ProductServices
         Task<ResultServiceResponseViewModel> DeleteProductAsync(int id);
         Task<ResultServiceResponseViewModel> UpdateProductAsync(ResultGetProductByIDDto resultGetProductByIDDto);
         Task<ResultGetProductByIDDto> GetProductAsync(int id);
+        Task<List<ResultGetSpecialOfferListDto>> GetSpecialOfferListAsync();
     }
 }
